@@ -25,20 +25,25 @@
         .navbar { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--border); }
         .brand { font-weight: 800; font-size: 20px; color: var(--dark); text-decoration: none; }
         .brand span { color: var(--primary); }
+        
+        .nav-right { display: flex; align-items: center; gap: 20px; }
         .nav-links { display: flex; gap: 20px; }
         .nav-links a { text-decoration: none; color: var(--text-main); font-weight: 600; font-size: 14px; transition: 0.3s; }
         .nav-links a:hover { color: var(--primary); }
+        
+        /* TOMBOL BAHASA */
+        .lang-btn { background: var(--bg-body); border: 1px solid var(--border); color: var(--dark); font-weight: 700; font-size: 12px; padding: 6px 12px; border-radius: 20px; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 5px; }
+        .lang-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
 
         /* HERO SECTION */
         .hero { padding: 100px 5%; display: flex; flex-direction: column; align-items: center; text-align: center; background: var(--bg-white); border-bottom: 1px solid var(--border); }
         .badge { background: #dbeafe; color: var(--primary); font-size: 12px; font-weight: 700; padding: 6px 15px; border-radius: 20px; margin-bottom: 20px; letter-spacing: 1px; }
         
-        /* CSS UNTUK FOTO PROFIL */
         .profile-img { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; margin-bottom: 25px; border: 5px solid var(--bg-white); box-shadow: 0 10px 25px rgba(0,0,0,0.1); transition: transform 0.3s; }
         .profile-img:hover { transform: scale(1.05); }
 
         .hero h1 { font-size: 42px; font-weight: 800; color: var(--dark); margin-bottom: 15px; line-height: 1.2; max-width: 800px; }
-        .hero p { font-size: 16px; color: var(--text-muted); max-width: 600px; margin-bottom: 30px; }
+        .hero p { font-size: 16px; color: var(--text-muted); max-width: 650px; margin-bottom: 30px; }
         .social-links { display: flex; gap: 15px; margin-bottom: 30px; }
         .social-links a { width: 40px; height: 40px; border-radius: 50%; background: var(--bg-body); display: flex; align-items: center; justify-content: center; color: var(--dark); font-size: 18px; text-decoration: none; transition: 0.3s; border: 1px solid var(--border); }
         .social-links a:hover { background: var(--primary); color: white; border-color: var(--primary); transform: translateY(-3px); }
@@ -80,10 +85,13 @@
 
     <nav class="navbar">
         <a href="#" class="brand">Roy<span>Aslah</span></a>
-        <div class="nav-links">
-            <a href="#about">Tentang</a>
-            <a href="#skills">Keahlian</a>
-            <a href="#projects">Portofolio</a>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="#about" data-id="Tentang" data-en="About">Tentang</a>
+                <a href="#skills" data-id="Keahlian" data-en="Skills">Keahlian</a>
+                <a href="#projects" data-id="Portofolio" data-en="Projects">Portofolio</a>
+            </div>
+            <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">🌐 EN</button>
         </div>
     </nav>
 
@@ -92,8 +100,12 @@
         
         <img src="profil.jpg" alt="Foto Muhamad Roy Aslah" class="profile-img">
 
-        <h1>Halo, Saya Muhamad Roy Aslah.</h1>
-        <p>Juga dikenal sebagai <b>Vinal</b> di komunitas developer. Saya berspesialisasi dalam membangun sistem perangkat lunak yang presisi—mulai dari alat <i>trading</i> algoritmik multi-aset hingga aplikasi web responsif terintegrasi <i>database</i>.</p>
+        <h1 data-id="Halo, Saya Muhamad Roy Aslah." data-en="Hello, I am Muhamad Roy Aslah.">Halo, Saya Muhamad Roy Aslah.</h1>
+        
+        <p data-id="Juga dikenal sebagai <b>Vinal</b> di komunitas developer. Saya berspesialisasi dalam membangun sistem perangkat lunak yang presisi—mulai dari alat <i>trading</i> algoritmik multi-aset hingga aplikasi web responsif terintegrasi <i>database</i>." 
+           data-en="Also known as <b>Vinal</b> in the developer community. I specialize in building precise software systems—from multi-asset algorithmic trading tools to responsive web applications integrated with databases.">
+           Juga dikenal sebagai <b>Vinal</b> di komunitas developer. Saya berspesialisasi dalam membangun sistem perangkat lunak yang presisi—mulai dari alat <i>trading</i> algoritmik multi-aset hingga aplikasi web responsif terintegrasi <i>database</i>.
+        </p>
         
         <div class="social-links">
             <a href="https://github.com/roycoid" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
@@ -103,14 +115,14 @@
     </header>
 
     <section class="section" style="background: var(--bg-body);" id="skills">
-        <h2 class="section-title">Keahlian Teknis</h2>
-        <p class="section-subtitle">Teknologi dan logika yang saya gunakan sehari-hari</p>
+        <h2 class="section-title" data-id="Keahlian Teknis" data-en="Technical Skills">Keahlian Teknis</h2>
+        <p class="section-subtitle" data-id="Teknologi dan logika yang saya gunakan sehari-hari" data-en="The technology and logic I use daily">Teknologi dan logika yang saya gunakan sehari-hari</p>
 
         <div class="skills-grid">
             <div class="skill-card">
                 <i class="fa-solid fa-chart-line skill-icon"></i>
                 <h3 class="skill-title">Algorithmic Trading</h3>
-                <p class="skill-desc">Pengembangan alat bantu <i>trading</i> (Expert Advisor/Indikator) berfokus pada Smart Money Concepts (SMC), identifikasi zona likuiditas, dan eksekusi presisi untuk instrumen seperti XAU/USD & Nasdaq.</p>
+                <p class="skill-desc" data-id="Pengembangan alat bantu <i>trading</i> (Expert Advisor/Indikator) berfokus pada Smart Money Concepts (SMC), identifikasi zona likuiditas, dan eksekusi presisi untuk instrumen seperti XAU/USD & Nasdaq." data-en="Development of trading tools (Expert Advisors/Indicators) focusing on Smart Money Concepts (SMC), liquidity zone identification, and precision execution for instruments like XAU/USD & Nasdaq.">Pengembangan alat bantu <i>trading</i> (Expert Advisor/Indikator) berfokus pada Smart Money Concepts (SMC), identifikasi zona likuiditas, dan eksekusi presisi untuk instrumen seperti XAU/USD & Nasdaq.</p>
                 <div class="skill-tags">
                     <span>MQL5</span> <span>MetaTrader 4 & 5</span> <span>SMC Logic</span>
                 </div>
@@ -119,7 +131,7 @@
             <div class="skill-card">
                 <i class="fa-solid fa-code skill-icon"></i>
                 <h3 class="skill-title">Web Development</h3>
-                <p class="skill-desc">Membangun antarmuka yang bersih (Light Mode diutamakan) dan interaktif. Berpengalaman merancang sistem keranjang belanja E-Commerce lengkap dengan manajemen <i>database real-time</i>.</p>
+                <p class="skill-desc" data-id="Membangun antarmuka yang bersih (Light Mode diutamakan) dan interaktif. Berpengalaman merancang sistem keranjang belanja E-Commerce lengkap dengan manajemen <i>database real-time</i>." data-en="Building clean interfaces (Light Mode preferred) and interactive experiences. Experienced in designing E-Commerce shopping cart systems complete with real-time database management.">Membangun antarmuka yang bersih (Light Mode diutamakan) dan interaktif. Berpengalaman merancang sistem keranjang belanja E-Commerce lengkap dengan manajemen <i>database real-time</i>.</p>
                 <div class="skill-tags">
                     <span>HTML5</span> <span>CSS3</span> <span>JavaScript</span> <span>Firebase</span>
                 </div>
@@ -128,7 +140,7 @@
             <div class="skill-card">
                 <i class="fa-solid fa-laptop-code skill-icon"></i>
                 <h3 class="skill-title">Tools & Environment</h3>
-                <p class="skill-desc">Terbiasa bekerja dalam ekosistem pengembangan modern untuk memastikan kode yang rapi, terkontrol versinya, dan siap untuk tahap <i>deployment</i>.</p>
+                <p class="skill-desc" data-id="Terbiasa bekerja dalam ekosistem pengembangan modern untuk memastikan kode yang rapi, terkontrol versinya, dan siap untuk tahap <i>deployment</i>." data-en="Accustomed to working in modern development ecosystems to ensure clean, version-controlled code ready for deployment.">Terbiasa bekerja dalam ekosistem pengembangan modern untuk memastikan kode yang rapi, terkontrol versinya, dan siap untuk tahap <i>deployment</i>.</p>
                 <div class="skill-tags">
                     <span>VS Code</span> <span>Git & GitHub</span> <span>GitHub Pages</span>
                 </div>
@@ -137,8 +149,8 @@
     </section>
 
     <section class="section" id="projects">
-        <h2 class="section-title">Portofolio Proyek</h2>
-        <p class="section-subtitle">Beberapa sistem yang telah saya bangun dan optimasi</p>
+        <h2 class="section-title" data-id="Portofolio Proyek" data-en="Project Portfolio">Portofolio Proyek</h2>
+        <p class="section-subtitle" data-id="Beberapa sistem yang telah saya bangun dan optimasi" data-en="Some of the systems I have built and optimized">Beberapa sistem yang telah saya bangun dan optimasi</p>
 
         <div class="projects-grid">
             <div class="project-card">
@@ -147,7 +159,7 @@
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">SNDZoneFinder</h3>
-                    <p class="project-desc">Sebuah <i>manual entry assistant</i> multi-aset (Forex, Kripto, Gold) yang dikembangkan dengan MQL5. Dirancang khusus untuk memetakan zona <i>Supply & Demand</i> dan mendeteksi jejak institusional pada <i>timeframe</i> rendah (M1) guna membantu ketepatan <i>scalping</i>.</p>
+                    <p class="project-desc" data-id="Sebuah <i>manual entry assistant</i> multi-aset (Forex, Kripto, Gold) yang dikembangkan dengan MQL5. Dirancang khusus untuk memetakan zona <i>Supply & Demand</i> dan mendeteksi jejak institusional pada <i>timeframe</i> rendah (M1) guna membantu ketepatan <i>scalping</i>." data-en="A multi-asset <i>manual entry assistant</i> (Forex, Crypto, Gold) developed with MQL5. Specifically designed to map Supply & Demand zones and detect institutional footprints on low timeframes (M1) to aid scalping precision.">Sebuah <i>manual entry assistant</i> multi-aset (Forex, Kripto, Gold) yang dikembangkan dengan MQL5. Dirancang khusus untuk memetakan zona <i>Supply & Demand</i> dan mendeteksi jejak institusional pada <i>timeframe</i> rendah (M1) guna membantu ketepatan <i>scalping</i>.</p>
                     <div class="skill-tags">
                         <span>MQL5</span> <span>MT5</span> <span>Algorithmic</span>
                     </div>
@@ -160,7 +172,7 @@
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">E-Commerce & Reseller Portal</h3>
-                    <p class="project-desc">Sistem pemesanan makanan berbasis web (Pempek Ibu Ita) yang dilengkapi dengan integrasi Firebase Firestore. Menampilkan katalog interaktif, kalkulator margin laba, dan logika <i>checkout</i> dinamis berdasarkan minimal pembelian untuk mitra agen.</p>
+                    <p class="project-desc" data-id="Sistem pemesanan makanan berbasis web (Pempek Ibu Ita) yang dilengkapi dengan integrasi Firebase Firestore. Menampilkan katalog interaktif, kalkulator margin laba, dan logika <i>checkout</i> dinamis berdasarkan minimal pembelian untuk mitra agen." data-en="A web-based food ordering system (Pempek Ibu Ita) equipped with Firebase Firestore integration. Features an interactive catalog, profit margin calculator, and dynamic checkout logic based on minimum purchases for agents.">Sistem pemesanan makanan berbasis web (Pempek Ibu Ita) yang dilengkapi dengan integrasi Firebase Firestore. Menampilkan katalog interaktif, kalkulator margin laba, dan logika <i>checkout</i> dinamis berdasarkan minimal pembelian untuk mitra agen.</p>
                     <div class="skill-tags">
                         <span>JavaScript</span> <span>Firebase</span> <span>UI/UX</span>
                     </div>
@@ -170,8 +182,25 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 Muhamad Roy Aslah (Vinal). Dibuat dengan antusiasme dan kode yang bersih.</p>
+        <p data-id="&copy; 2026 Muhamad Roy Aslah (Vinal). Dibuat dengan antusiasme dan kode yang bersih." data-en="&copy; 2026 Muhamad Roy Aslah (Vinal). Built with enthusiasm and clean code.">&copy; 2026 Muhamad Roy Aslah (Vinal). Dibuat dengan antusiasme dan kode yang bersih.</p>
     </footer>
+
+    <script>
+        let currentLang = 'id';
+
+        function toggleLanguage() {
+            currentLang = (currentLang === 'id') ? 'en' : 'id';
+            
+            // Ubah teks tombol
+            document.getElementById('langToggle').innerText = (currentLang === 'id') ? '🌐 EN' : '🌐 ID';
+            
+            // Cari semua elemen yang punya terjemahan dan ubah isinya
+            const elements = document.querySelectorAll('[data-en]');
+            elements.forEach(el => {
+                el.innerHTML = el.getAttribute(`data-${currentLang}`);
+            });
+        }
+    </script>
 
 </body>
 </html>
