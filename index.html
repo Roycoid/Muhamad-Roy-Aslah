@@ -14,13 +14,13 @@
             --dark: #0f172a; 
             --text-main: #334155;
             --text-muted: #64748b; 
-            --glass-bg: rgba(255, 255, 255, 0.65);
-            --glass-border: rgba(255, 255, 255, 0.8);
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.9);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
         
-        /* BACKGROUND ANIMASI HALUS */
+        /* BACKGROUND TECH-GRID ANIMASI */
         body { 
             background: linear-gradient(-45deg, #f8fafc, #e0f2fe, #f1f5f9, #dbeafe);
             background-size: 400% 400%;
@@ -29,28 +29,24 @@
             line-height: 1.6; 
             -webkit-font-smoothing: antialiased; 
             overflow-x: hidden;
+            position: relative;
         }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        /* Pola Titik (Dot Grid) ala Blueprint Developer */
+        body::before {
+            content: ''; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background-image: radial-gradient(#94a3b8 1px, transparent 1px);
+            background-size: 24px 24px; z-index: -1; opacity: 0.25;
         }
 
-        /* NAVBAR GLASSMORPHISM */
+        @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+        /* NAVBAR PREMIUM */
         .navbar { 
-            background: rgba(255, 255, 255, 0.5); 
-            backdrop-filter: blur(16px); 
-            -webkit-backdrop-filter: blur(16px);
-            padding: 15px 5%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            position: sticky; 
-            top: 0; 
-            z-index: 100; 
-            border-bottom: 1px solid rgba(255, 255, 255, 0.5); 
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+            background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; 
+            position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255, 255, 255, 0.6); 
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
         }
         .brand { font-weight: 800; font-size: 20px; color: var(--dark); text-decoration: none; letter-spacing: -0.5px; }
         .brand span { color: var(--primary); }
@@ -76,10 +72,10 @@
         
         /* BADGE KEKINIAN */
         .badge { 
-            background: linear-gradient(90deg, #3b82f6, #60a5fa); color: white; 
-            font-size: 12px; font-weight: 800; padding: 6px 18px; border-radius: 20px; 
-            margin-bottom: 25px; letter-spacing: 1.5px; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
-            animation: floatBadge 3s ease-in-out infinite;
+            background: linear-gradient(90deg, #1e3a8a, #3b82f6); color: white; 
+            font-size: 11px; font-weight: 800; padding: 8px 20px; border-radius: 30px; 
+            margin-bottom: 30px; letter-spacing: 2px; box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+            text-transform: uppercase; animation: floatBadge 3s ease-in-out infinite;
         }
         @keyframes floatBadge { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
         
@@ -87,8 +83,8 @@
         .profile-img-container { position: relative; margin-bottom: 30px; }
         .profile-img-container::before {
             content: ''; position: absolute; top: -5px; left: -5px; right: -5px; bottom: -5px;
-            background: linear-gradient(45deg, #3b82f6, #93c5fd, #3b82f6);
-            border-radius: 50%; z-index: -1; filter: blur(15px); opacity: 0.6;
+            background: linear-gradient(45deg, #3b82f6, #60a5fa, #2563eb);
+            border-radius: 50%; z-index: -1; filter: blur(18px); opacity: 0.5;
             animation: spinGlow 8s linear infinite;
         }
         @keyframes spinGlow { 100% { transform: rotate(360deg); } }
@@ -100,13 +96,13 @@
         }
         .profile-img-container:hover .profile-img { transform: scale(1.05) rotate(2deg); }
 
-        .hero h1 { font-size: 48px; font-weight: 800; color: var(--dark); margin-bottom: 15px; line-height: 1.2; max-width: 800px; letter-spacing: -1px; }
-        .hero h1 span { background: -webkit-linear-gradient(45deg, #2563eb, #38bdf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { font-size: 17px; color: var(--text-muted); max-width: 650px; margin-bottom: 35px; }
+        .hero h1 { font-size: 52px; font-weight: 800; color: var(--dark); margin-bottom: 20px; line-height: 1.1; max-width: 900px; letter-spacing: -1.5px; }
+        .hero h1 span { background: -webkit-linear-gradient(45deg, #1e40af, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 18px; color: var(--text-muted); max-width: 700px; margin-bottom: 40px; font-weight: 500; }
         
         .social-links { display: flex; gap: 15px; margin-bottom: 30px; }
         .social-links a { 
-            width: 45px; height: 45px; border-radius: 50%; background: white; 
+            width: 50px; height: 50px; border-radius: 50%; background: white; 
             display: flex; align-items: center; justify-content: center; color: var(--dark); 
             font-size: 20px; text-decoration: none; transition: all 0.3s; 
             box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid var(--border);
@@ -114,45 +110,45 @@
         .social-links a:hover { background: var(--primary); color: white; border-color: var(--primary); transform: translateY(-5px); box-shadow: 0 10px 20px var(--primary-glow); }
 
         /* SECTION GLOBAL */
-        .section { padding: 80px 5%; position: relative; z-index: 10; }
-        .section-title { font-size: 32px; font-weight: 800; color: var(--dark); margin-bottom: 10px; text-align: center; }
-        .section-subtitle { font-size: 15px; color: var(--text-muted); text-align: center; margin-bottom: 50px; }
+        .section { padding: 90px 5%; position: relative; z-index: 10; }
+        .section-title { font-size: 36px; font-weight: 800; color: var(--dark); margin-bottom: 15px; text-align: center; letter-spacing: -1px; }
+        .section-subtitle { font-size: 16px; color: var(--text-muted); text-align: center; margin-bottom: 60px; font-weight: 500; }
 
-        /* KARTU GLASSMORPHISM UNTUK SKILL & PROJECT */
+        /* KARTU 3D GLASSMORPHISM */
         .glass-card { 
-            background: var(--glass-bg); 
-            backdrop-filter: blur(12px); 
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border); 
-            border-radius: 20px; 
-            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.04); 
+            background: var(--glass-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border); border-radius: 24px; 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03); 
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
             overflow: hidden;
         }
-        .glass-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(37, 99, 235, 0.1); border-color: rgba(255,255,255,1); }
+        .glass-card:hover { 
+            transform: translateY(-12px); 
+            box-shadow: 0 25px 50px rgba(37, 99, 235, 0.15); 
+            border-color: #bfdbfe; 
+        }
 
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1050px; margin: 0 auto; }
-        .skill-card { padding: 35px 30px; }
-        .skill-icon { font-size: 36px; color: var(--primary); margin-bottom: 20px; display: inline-block; transition: 0.3s; }
-        .skill-card:hover .skill-icon { transform: scale(1.1) rotate(-10deg); color: #38bdf8; }
-        .skill-title { font-size: 20px; font-weight: 800; color: var(--dark); margin-bottom: 12px; }
-        .skill-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto; }
+        .skill-card { padding: 40px 35px; }
+        .skill-icon { font-size: 40px; color: var(--primary); margin-bottom: 25px; display: inline-block; transition: 0.4s; }
+        .skill-card:hover .skill-icon { transform: scale(1.15) rotate(-10deg); color: #2563eb; filter: drop-shadow(0 5px 15px rgba(37,99,235,0.4)); }
+        .skill-title { font-size: 22px; font-weight: 800; color: var(--dark); margin-bottom: 12px; }
+        .skill-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 25px; line-height: 1.6; }
         .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-        .skill-tags span { background: rgba(255,255,255,0.8); color: var(--primary); font-size: 11px; font-weight: 700; padding: 6px 12px; border-radius: 8px; border: 1px solid rgba(37, 99, 235, 0.2); }
+        .skill-tags span { background: white; color: var(--primary); font-size: 12px; font-weight: 800; padding: 6px 14px; border-radius: 10px; border: 1px solid #dbeafe; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
 
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 35px; max-width: 1050px; margin: 0 auto; }
-        .project-img { width: 100%; height: 220px; background: linear-gradient(135deg, #eff6ff, #dbeafe); display: flex; align-items: center; justify-content: center; font-size: 50px; color: #3b82f6; position: relative; overflow: hidden; }
-        .project-img i { transition: 0.5s; }
-        .glass-card:hover .project-img i { transform: scale(1.2); color: var(--primary); }
-        .project-content { padding: 30px; }
-        .project-title { font-size: 20px; font-weight: 800; color: var(--dark); margin-bottom: 10px; }
-        .project-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; max-width: 1100px; margin: 0 auto; }
+        .project-img { width: 100%; height: 240px; background: linear-gradient(135deg, #eff6ff, #bfdbfe); display: flex; align-items: center; justify-content: center; font-size: 60px; color: #2563eb; position: relative; overflow: hidden; }
+        .project-img i { transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .glass-card:hover .project-img i { transform: scale(1.25); color: #1e3a8a; }
+        .project-content { padding: 35px; }
+        .project-title { font-size: 24px; font-weight: 800; color: var(--dark); margin-bottom: 12px; }
+        .project-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 25px; line-height: 1.7; }
 
-        /* FOOTER */
-        footer { padding: 40px 5%; text-align: center; color: var(--text-muted); font-size: 13px; font-weight: 600; margin-top: 50px; }
+        footer { padding: 40px 5%; text-align: center; color: var(--text-muted); font-size: 14px; font-weight: 600; margin-top: 50px; }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 36px; }
+            .hero h1 { font-size: 38px; }
             .nav-links { display: none; }
             .profile-img { width: 180px; height: 180px; }
         }
@@ -212,7 +208,7 @@
             <div class="glass-card skill-card">
                 <i class="fa-brands fa-js skill-icon"></i>
                 <h3 class="skill-title">Web Engineering</h3>
-                <p class="skill-desc" data-id="Merancang antarmuka pengguna (UI) yang bersih, berestetika <i>Light Mode</i>, dan interaktif. Terspesialisasi dalam integrasi <i>real-time database</i> (seperti Firebase) untuk sistem E-Commerce." data-en="Designing clean, Light Mode aesthetic, and interactive user interfaces (UI). Specialized in real-time database integration (like Firebase) for E-Commerce systems.">Merancang antarmuka pengguna (UI) yang bersih, berestetika <i>Light Mode</i>, dan interaktif. Terspesialisasi dalam integrasi <i>real-time database</i> (seperti Firebase) untuk sistem E-Commerce.</p>
+                <p class="skill-desc" data-id="Merancang antarmuka pengguna (UI) yang bersih, berestetika <i>Light Mode</i>, dan interaktif. Terspesialisasi dalam integrasi <i>real-time database</i> untuk sistem E-Commerce skala menengah." data-en="Designing clean, Light Mode aesthetic, and interactive user interfaces (UI). Specialized in real-time database integration for mid-scale E-Commerce systems.">Merancang antarmuka pengguna (UI) yang bersih, berestetika <i>Light Mode</i>, dan interaktif. Terspesialisasi dalam integrasi <i>real-time database</i> untuk sistem E-Commerce skala menengah.</p>
                 <div class="skill-tags">
                     <span>JavaScript</span> <span>HTML/CSS</span> <span>Firebase</span>
                 </div>
@@ -252,8 +248,8 @@
                     <i class="fa-solid fa-store"></i>
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">Ibu Ita Reseller Web</h3>
-                    <p class="project-desc" data-id="Platform kemitraan B2B modern. Menghadirkan sistem keranjang dinamis berbasis jumlah, kalkulator margin keuntungan interaktif, dan integrasi pesanan langsung dengan Firestore Database." data-en="A modern B2B partnership platform. Features a dynamic quantity-based cart system, an interactive profit margin calculator, and direct order integration with Firestore Database.">Platform kemitraan B2B modern. Menghadirkan sistem keranjang dinamis berbasis jumlah, kalkulator margin keuntungan interaktif, dan integrasi pesanan langsung dengan Firestore Database.</p>
+                    <h3 class="project-title">B2B E-Commerce Portal</h3>
+                    <p class="project-desc" data-id="Platform pemesanan dan kemitraan B2B modern untuk industri F&B. Menghadirkan sistem keranjang belanja dinamis, kalkulator margin keuntungan interaktif, serta integrasi <i>database real-time</i> (Firestore)." data-en="A modern B2B partnership and ordering platform for the F&B industry. Features a dynamic shopping cart system, an interactive profit margin calculator, and real-time database integration (Firestore).">Platform pemesanan dan kemitraan B2B modern untuk industri F&B. Menghadirkan sistem keranjang belanja dinamis, kalkulator margin keuntungan interaktif, serta integrasi <i>database real-time</i> (Firestore).</p>
                     <div class="skill-tags">
                         <span>JS</span> <span>Firebase</span> <span>E-Commerce</span>
                     </div>
