@@ -98,7 +98,7 @@
     <header class="hero" id="about">
         <div class="badge">SOFTWARE DEVELOPER & ALGO TRADER</div>
         
-        <img src="profil.jpg" alt="Foto Muhamad Roy Aslah" class="profile-img">
+        <img src="WhatsApp Image 2026-05-18 at 01.27.24.jpeg" alt="Foto Muhamad Roy Aslah" class="profile-img">
 
         <h1 data-id="Halo, Saya Muhamad Roy Aslah." data-en="Hello, I am Muhamad Roy Aslah.">Halo, Saya Muhamad Roy Aslah.</h1>
         
@@ -191,10 +191,8 @@
         function toggleLanguage() {
             currentLang = (currentLang === 'id') ? 'en' : 'id';
             
-            // Ubah teks tombol
             document.getElementById('langToggle').innerText = (currentLang === 'id') ? '🌐 EN' : '🌐 ID';
             
-            // Cari semua elemen yang punya terjemahan dan ubah isinya
             const elements = document.querySelectorAll('[data-en]');
             elements.forEach(el => {
                 el.innerHTML = el.getAttribute(`data-${currentLang}`);
